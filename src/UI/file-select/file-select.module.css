@@ -1,0 +1,20 @@
+.dropZone {
+  border: 2px dashed #2a2a2a;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.fileInput {
+  display: none;
+}
+
+.instructions {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.fileItem {
+  margin-top: 5px;
+}

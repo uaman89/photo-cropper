@@ -1,0 +1,26 @@
+
+.preview-container {
+  list-style: none;
+  margin-top: 20px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em;
+}
+
+.preview-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-item img {
+  max-width: 100%;
+}
+
+.preview-title {
+  color: grey;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 100%;
+}
