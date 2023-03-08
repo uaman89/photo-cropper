@@ -8,7 +8,7 @@ import styles from "./file-select.module.css";
  * @returns Component
  */
 
-const FileSelect = ({ accept, onChange }) => {
+const FileSelect = ({ accept, onChange, className }) => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const fileInputRef = useRef();
 
@@ -38,7 +38,7 @@ const FileSelect = ({ accept, onChange }) => {
 
   return (
     <div
-      className={styles.dropZone}
+      className={`${styles.dropZone} ${className}`}
       onDragOver={dragOverHandler}
       onDrop={handleDrop}
       onClick={dragZoneClickHandler}

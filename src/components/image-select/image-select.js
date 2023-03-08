@@ -1,14 +1,11 @@
 import { useState } from "react";
 import FileSelect from "../../UI/file-select/file-select.js";
+import ImagePreviewGrid from "../../UI/file-select/image-preview-grid/image-preview-grid.js";
 import styles from "./image-select.module.css";
 
-const ImageSelector = () => {
+const ImageSelector = (props) => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const accept = ["image/*"];
-
-  const filesChangeHandler = (files) => {
-    setSelectedFiles(files);
-  };
 
   const previewItems = selectedFiles.map((file) => {
     return {
@@ -16,23 +13,24 @@ const ImageSelector = () => {
       src: URL.createObjectURL(file),
     };
   });
-  const previewBlock = previewItems.length ? (
-    <ul className={styles["preview-container"]}>
-      {previewItems.map((item) => (
-        <li key={item.name} className={styles['preview-item']}>
-          <img src={item.src} alt="" title={item.name}/>
-          <span className={styles['preview-title']}>{item.name}</span> 
-        </li>
-      ))}
-    </ul>
-  ) : null;
+
+  const onClickHandler = () => {
+    props.onSelect(previewItems);
+  };
 
   return (
-    <div>
+    <>
       <h3>Select Images</h3>
-      <FileSelect accept={accept} onChange={filesChangeHandler} />
-      {previewBlock}
-    </div>
+        <FileSelect
+          accept={accept}
+          onChange={setSelectedFiles}
+          className={styles["file-drop-zone"]}
+        />
+        {previewItems.length ? (
+          <button onClick={onClickHandler}>Confirm</button>
+        ) : null}
+        <ImagePreviewGrid items={previewItems} />
+    </>
   );
 };
 

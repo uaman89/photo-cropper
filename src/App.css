@@ -1,3 +1,9 @@
 body {
   background-color: #a8cdde;
+  padding: 0em 1em;
+}
+
+.main-container {
+  display: grid;
+  align-items: center
 }
